@@ -8,6 +8,8 @@ IT · DevOps · Cloud · AI · Observability와 Kubernetes · Grafana · Python 
 
 ## 문서
 
+- [매일 작업 시작·종료 기록](docs/work-log.md)
+- [프로젝트 진행 안내](docs/project-management.md)
 - [첫 버전 제품 정의](docs/product-definition.md) — 최근 논의를 반영한 기준 문서
 - [초기 설계 보고서](docs/stack-brief-report.md) — Stack Brief라는 가칭으로 작성한 초기 제안; 현재 정의서와 다르면 현재 정의서 우선
 - [참고 사이트 모음](docs/reference-sites.md)
