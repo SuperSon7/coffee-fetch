@@ -8,6 +8,8 @@ IT · DevOps · Cloud · AI · Observability와 Kubernetes · Grafana · Python 
 
 ## 문서
 
+- [토큰 사용 기록](docs/token-usage.md) — 날짜·처리한 일·토큰 사용량
+- [토큰 기록 스킬](skills/token-usage-log/SKILL.md) — 개인 스킬 폴더에 등록해 사용
 - [매일 작업 시작·종료 기록](docs/work-log.md)
 - [프로젝트 진행 안내](docs/project-management.md)
 - [첫 버전 제품 정의](docs/product-definition.md) — 최근 논의를 반영한 기준 문서
