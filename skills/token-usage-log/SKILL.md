@@ -1,9 +1,15 @@
 ---
 name: token-usage-log
-description: Measure Codex token usage with ccusage and record task usage in a three-column Markdown log. Use when the user asks to start token measurement, report usage, or record tokens when finishing a task. Not for account quotas or billing balances.
+description: Track Codex task tokens with ccusage and a three-column Markdown log. Use when starting or resuming a project task or issue, completing work, ending a work session, or answering a token usage request. No separate measurement command is needed. Not for account quotas or billing balances.
 ---
 
 # Token usage log
+
+## Automatic task boundaries
+
+When the user starts a concrete project task (for example, "01번 진행하자"), capture its baseline before substantive work without requiring a separate token-measurement request. When the task is completed or the user ends the work session (for example, "오늘 여기까지"), record the delta. Preserve the active baseline across follow-up messages; do not restart it on every turn or count nested work twice. After a recorded session ends, capture a new baseline when work resumes. Do not create a task for casual acknowledgements or explanatory questions alone. This is an assistant workflow instruction, not a background monitoring process or guaranteed runtime hook. If invocation or logs are unavailable, disclose the gap rather than claim automatic capture occurred.
+
+For the current Coffee Fetch conversation, use the verified Windows session logs. Recheck the log source only if the execution environment changes; do not combine Windows and WSL totals just because both installations exist.
 
 Use installed `ccusage` (tested with 20.0.24). On Windows use `ccusage.cmd` if PowerShell blocks the .ps1 launcher; on WSL use `ccusage` or `~/.local/bin/ccusage`. Reports: `ccusage codex session --json --offline --no-cost`; daily overview: `ccusage codex daily --offline --no-cost --timezone Asia/Seoul`.
 
