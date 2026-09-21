@@ -16,7 +16,7 @@ assignees: ""
 
 - [ ] 확인 가능한 결과물
 - [ ] 직접 검증한 근거
-- [ ] docs/work-log.md에 시간·병목·배운 점 기록
+- [ ] docs/logs/work-log.md에 시간·병목·배운 점 기록
 
 ## 선행 작업
 

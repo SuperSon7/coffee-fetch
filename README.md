@@ -2,39 +2,46 @@
 
 커피 한 잔과 함께 읽는 오늘의 기술 소식.
 
-IT · DevOps · Cloud · AI · Observability와 Kubernetes · Grafana · Python 등 관심 기술의 새 소식을 적당한 양으로 읽고 저장하는 개인 브리핑 도구입니다.
+관심 기술의 새 소식을 짧게 읽고 저장하는 개인 프로젝트입니다. 만들고 싶은 것을 만들면서 AI를 어떻게 활용할지 배웁니다.
 
-**현재 상태: 아이디어 구체화와 제품 설계. 실제 서비스는 아직 구현하지 않았습니다.**
+**현재: 목적·기본 기능 정리됨. 초기 목업만 있으며 앱은 아직 구현하지 않았습니다.** 작업 파일은 WSL 저장소를 기준으로 관리합니다.
 
-## 문서
+## 로드맵
 
-- [토큰 사용 기록](docs/token-usage.md) — 날짜·처리한 일·토큰 사용량
-- [토큰 기록 스킬](skills/token-usage-log/SKILL.md) — 개인 스킬 폴더에 등록해 사용
-- [매일 작업 시작·종료 기록](docs/work-log.md)
-- [프로젝트 진행 안내](docs/project-management.md)
-- [첫 버전 제품 정의](docs/product-definition.md) — 최근 논의를 반영한 기준 문서
-- [초기 설계 보고서](docs/stack-brief-report.md) — Stack Brief라는 가칭으로 작성한 초기 제안; 현재 정의서와 다르면 현재 정의서 우선
-- [참고 사이트 모음](docs/reference-sites.md)
-- [행사 발표·로컬 LLM 추가 조사](docs/reference-sites-2026-09-17.md)
-- [초기 UI 목업](mockup/index.html) — 내려받아 브라우저에서 열기; 이전 가칭과 가상 데이터 사용
+단계는 결과물 기준입니다. 상세 작업 상태는 GitHub Project와 이슈에서 관리하고, 아래 상태는 단계의 결과물이 달라질 때 갱신합니다. 티켓 개수로 진척률을 계산하지 않습니다.
 
-## 첫 버전 방향
+| 단계 | 도달할 상태 | 현재 상태와 결과물 | 관련 작업 |
+|---|---|---|---|
+| 1. 방향 정리 | 목적·첫 버전 범위 정리 | [현재 제품 정의](docs/product/definition.md) 있음. #1 완료 점검은 남음 | [#1](https://github.com/SuperSon7/coffee-fetch/issues/1), [#2](https://github.com/SuperSon7/coffee-fetch/issues/2) |
+| 2. 읽기 경험 확인 | 실제 소식으로 읽기·저장 흐름 확인 | [초기 목업](docs/archive/mockup/index.html)만 있음. 실제 자료 검증 필요 | [#3](https://github.com/SuperSon7/coffee-fetch/issues/3), [#4](https://github.com/SuperSon7/coffee-fetch/issues/4) |
+| 3. 수집·요약과 구조 결정 | 자료 수집·요약을 시험하고 저장·처리 구조 결정 | 미착수 | [#5](https://github.com/SuperSon7/coffee-fetch/issues/5), [#6](https://github.com/SuperSon7/coffee-fetch/issues/6) |
+| 4. 작은 버전 연결 | 설정 → 수집 → 카드 → 읽음·저장 동작 | 미착수 | [#7](https://github.com/SuperSon7/coffee-fetch/issues/7), [#8](https://github.com/SuperSon7/coffee-fetch/issues/8), [#9](https://github.com/SuperSon7/coffee-fetch/issues/9) |
+| 5. 직접 사용·개선 | 실제 사용과 개발 병목을 바탕으로 개선 | 미착수. 배포는 필요할 때 결정 | [#11](https://github.com/SuperSon7/coffee-fetch/issues/11), 배포 후보 [#10](https://github.com/SuperSon7/coffee-fetch/issues/10) |
 
-- 관심 분야와 도구를 고르면 새 소식을 짧은 카드로 제공
-- 원문 링크, 명시적 읽음 표시, 나중에 보기
-- 고민 등록은 필수가 아닌 후속 선택 기능
-- 행사 발표도 후보로 수집하되 하루 노출량은 제한
-- 수집은 일반 프로그램, 요약·정리는 로컬 LLM 가능성을 먼저 평가
+## 작업 관리
+
+- [GitHub Project](https://github.com/users/SuperSon7/projects/4): Todo → In Progress → Done
+- [이슈 목록](https://github.com/SuperSon7/coffee-fetch/issues): 범위·완료 조건·결과물 링크
+- [작업 기록](docs/logs/work-log.md): 시간, 진행 내용, 병목, 다음 행동
+- [토큰 기록](docs/logs/token-usage.md): 날짜·처리한 일·토큰 사용량
+
+## 자료 찾기
+
+| 위치 | 역할 |
+|---|---|
+| [제품 정의](docs/product/definition.md) | 현재 목적·기능 범위·결정 |
+| [참고 사이트](docs/references/sites.md) | 다시 사용할 조사 출처 |
+| [행사 발표·로컬 LLM](docs/references/events-and-local-llm.md) | 추가 조사 자료 |
+| [과거 초안](docs/archive/README.md) | 초기 설계·목업·논의 보관. 현재 사양 아님 |
+| [토큰 기록 스킬](skills/token-usage-log/SKILL.md) | 재사용하는 스킬 원본 |
+
+문서는 관련 폴더에 둡니다. 작업별 새 준비 문서보다 이슈를 우선 사용하고, 별도 설계 문서는 필요할 때 추가합니다. 단계 진척은 README, 상세 상태는 이슈, 실제 투입은 기록에서 확인합니다.
 
 ## 작업 환경
 
-개발은 WSL의 Linux 파일시스템에서 진행할 예정입니다.
-
 ```bash
-mkdir -p ~/projects
-cd ~/projects
-git clone https://github.com/SuperSon7/coffee-fetch.git
-cd coffee-fetch
+cd ~/projects/coffee-fetch
+git pull --ff-only
 ```
 
-아직 웹 배포, 자동 수집, 예약 알림은 설정하지 않았습니다. 목업의 저장 표시는 일시적이며 새로고침하면 초기화됩니다.
+개발 실행 방법은 구현 후 추가합니다. 과거 HTML 목업은 내려받아 브라우저에서 열 수 있지만 샘플 데이터와 일시적인 UI 동작만 포함합니다.

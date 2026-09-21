@@ -1,3 +1,5 @@
+> 보관된 초기 초안입니다. 현재 기준은 [제품 정의](../product/definition.md)와 [로드맵](../../README.md)을 확인하세요.
+
 # #1 진행 준비 — 학습 목표와 MVP 완료 기준
 
 상태: 사용자 검토용 초안. 아래 목표·수치·시간은 제안이며 확정하지 않았다. [이슈 #1](https://github.com/SuperSon7/coffee-fetch/issues/1)은 열린 상태로 유지한다.

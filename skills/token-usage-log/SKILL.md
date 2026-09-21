@@ -31,7 +31,7 @@ Read the report again and subtract the saved baseline for the exact same session
 
 If no baseline exists, offer the verified whole-session total explicitly labeled `세션 전체`, or record `미측정 (시작 기준 없음)`; never label it task usage. Other work in the same session between snapshots is included, so disclose mixed scope. A running turn may not be fully written yet: label the result `조회 시점까지` and reconcile on the next turn if needed. Do not claim to measure tokens generated after the read.
 
-Append one row to `docs/token-usage.md` (or the user's requested path):
+Append one row to `docs/logs/token-usage.md` (or the user's requested path):
 
 | 날짜 | 처리한 일 | 토큰 사용량 |
 |---|---|---|

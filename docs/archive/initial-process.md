@@ -1,8 +1,10 @@
+> 보관된 초기 초안입니다. 현재 기준은 [제품 정의](../product/definition.md)와 [로드맵](../../README.md)을 확인하세요.
+
 # Coffee Fetch — 프로젝트 진행 방식
 
 - [GitHub Project: 제품 개발과 학습](https://github.com/users/SuperSon7/projects/4)
 - [저장소 이슈 목록](https://github.com/SuperSon7/coffee-fetch/issues)
-- [매일 시작·종료 기록](work-log.md)
+- [매일 시작·종료 기록](../logs/work-log.md)
 
 ## 운영 규칙
 
