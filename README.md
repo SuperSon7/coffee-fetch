@@ -12,7 +12,7 @@
 
 | 단계 | 도달할 상태 | 현재 상태와 결과물 | 관련 작업 |
 |---|---|---|---|
-| 1. 방향 정리 | 목적·첫 버전 범위 정리 | [현재 제품 정의](docs/product/definition.md) 있음. #1 완료 점검은 남음 | [#1](https://github.com/SuperSon7/coffee-fetch/issues/1), [#2](https://github.com/SuperSon7/coffee-fetch/issues/2) |
+| 1. 방향 정리 | 목적·첫 버전 범위 정리 | [현재 제품 정의](docs/product/definition.md) 확정. #1 완료, #2 작업 환경·기록 흐름 확인 중 | [#1](https://github.com/SuperSon7/coffee-fetch/issues/1), [#2](https://github.com/SuperSon7/coffee-fetch/issues/2) |
 | 2. 읽기 경험 확인 | 실제 소식으로 읽기·저장 흐름 확인 | [초기 목업](docs/archive/mockup/index.html)만 있음. 실제 자료 검증 필요 | [#3](https://github.com/SuperSon7/coffee-fetch/issues/3), [#4](https://github.com/SuperSon7/coffee-fetch/issues/4) |
 | 3. 수집·요약과 구조 결정 | 자료 수집·요약을 시험하고 저장·처리 구조 결정 | 미착수 | [#5](https://github.com/SuperSon7/coffee-fetch/issues/5), [#6](https://github.com/SuperSon7/coffee-fetch/issues/6) |
 | 4. 작은 버전 연결 | 설정 → 수집 → 카드 → 읽음·저장 동작 | 미착수 | [#7](https://github.com/SuperSon7/coffee-fetch/issues/7), [#8](https://github.com/SuperSon7/coffee-fetch/issues/8), [#9](https://github.com/SuperSon7/coffee-fetch/issues/9) |
