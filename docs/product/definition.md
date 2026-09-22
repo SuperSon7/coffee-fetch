@@ -64,6 +64,46 @@
 - 수집·요약 실패: 새 소식 없음과 구분하고 재시도 가능하게 표시. 기존 브리핑은 유지.
 - 상태 저장 실패: 읽음·저장이 완료된 것처럼 표시하지 않고 실패와 재시도 안내.
 
+## 목업 캡처
+
+화면 구성 검토용 가상 데이터입니다. 배치와 스타일은 추후 변경할 수 있습니다. [클릭 가능한 목업 원본](mockup/index.html)은 내려받아 브라우저에서 열 수 있습니다.
+
+### 브리핑
+
+![오늘의 브리핑 목업](mockup/briefing.png)
+
+### 나중에 보기
+
+![저장한 소식 목업](mockup/saved.png)
+
+### 관심사·설정
+
+![관심사와 설정 목업](mockup/settings.png)
+
+<details>
+<summary>목업 캡처 다시 만들기</summary>
+
+Playwright를 사용합니다. 캡처 명령은 [tools/capture-mockup.cjs](../../tools/capture-mockup.cjs)에 있습니다. 캡처용 브라우저는 독립 프로필과 네트워크 차단 상태에서 HTML 내용만 렌더링합니다.
+
+Windows에는 Playwright를 전역 설치했으며 기존 Edge를 사용합니다. 저장소 루트에서 실행:
+
+```powershell
+$env:NODE_PATH = (npm root -g)
+node tools/capture-mockup.cjs
+```
+
+WSL에서 처음 사용할 때:
+
+```bash
+npm install --global playwright
+playwright install --with-deps chromium
+NODE_PATH=$(npm root -g) node tools/capture-mockup.cjs
+```
+
+세 PNG를 갱신하고 읽기 상태 전환, 360px 화면의 가로 넘침, JavaScript 실행 오류를 확인합니다. WSL 설치·실행은 아직 검증하지 않았습니다.
+
+</details>
+
 ## 기능에서 도출한 기본 데이터
 
 아래는 기능에 필요한 정보와 관계입니다. DB 제품·테이블·컬럼·API를 확정한 설계는 아닙니다.
