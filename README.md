@@ -4,7 +4,7 @@
 
 관심 기술의 새 소식을 짧게 읽고 저장하는 개인 프로젝트입니다. 만들고 싶은 것을 만들면서 AI를 어떻게 활용할지 배웁니다.
 
-**현재: 목적·기본 기능 정리됨. 초기 목업만 있으며 앱은 아직 구현하지 않았습니다.** 작업 파일은 WSL 저장소를 기준으로 관리합니다.
+**현재: 목업을 기준으로 화면별 동작과 기본 데이터 관계를 정리했습니다. 화면 구성은 변경 가능한 초안이며 앱은 아직 구현하지 않았습니다.** 작업 파일은 WSL 저장소를 기준으로 관리합니다.
 
 ## 로드맵
 
@@ -12,8 +12,8 @@
 
 | 단계 | 도달할 상태 | 현재 상태와 결과물 | 관련 작업 |
 |---|---|---|---|
-| 1. 방향 정리 | 목적·첫 버전 범위 정리 | [현재 제품 정의](docs/product/definition.md) 확정. #1 완료, #2 작업 환경·기록 흐름 확인 중 | [#1](https://github.com/SuperSon7/coffee-fetch/issues/1), [#2](https://github.com/SuperSon7/coffee-fetch/issues/2) |
-| 2. 읽기 경험 확인 | 실제 소식으로 읽기·저장 흐름 확인 | [초기 목업](docs/archive/mockup/index.html)만 있음. 실제 자료 검증 필요 | [#3](https://github.com/SuperSon7/coffee-fetch/issues/3), [#4](https://github.com/SuperSon7/coffee-fetch/issues/4) |
+| 1. 방향 정리 | 목적·첫 버전 범위 정리 | [현재 제품 정의](docs/product/definition.md) 확정. #1·#2 완료 | [#1](https://github.com/SuperSon7/coffee-fetch/issues/1), [#2](https://github.com/SuperSon7/coffee-fetch/issues/2) |
+| 2. 읽기 경험 확인 | 실제 소식으로 읽기·저장 흐름 확인 | 대화에서 목업 검토, [화면·동작 정의](docs/product/definition.md) 반영. 실제 자료 검증 필요 | [#3](https://github.com/SuperSon7/coffee-fetch/issues/3), [#4](https://github.com/SuperSon7/coffee-fetch/issues/4) |
 | 3. 수집·요약과 구조 결정 | 자료 수집·요약을 시험하고 저장·처리 구조 결정 | 미착수 | [#5](https://github.com/SuperSon7/coffee-fetch/issues/5), [#6](https://github.com/SuperSon7/coffee-fetch/issues/6) |
 | 4. 작은 버전 연결 | 설정 → 수집 → 카드 → 읽음·저장 동작 | 미착수 | [#7](https://github.com/SuperSon7/coffee-fetch/issues/7), [#8](https://github.com/SuperSon7/coffee-fetch/issues/8), [#9](https://github.com/SuperSon7/coffee-fetch/issues/9) |
 | 5. 직접 사용·개선 | 실제 사용과 개발 병목을 바탕으로 개선 | 미착수. 배포는 필요할 때 결정 | [#11](https://github.com/SuperSon7/coffee-fetch/issues/11), 배포 후보 [#10](https://github.com/SuperSon7/coffee-fetch/issues/10) |
