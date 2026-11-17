@@ -87,8 +87,20 @@ const assert = require('node:assert/strict');
     await page.getByRole('button', { name: '브리핑', exact: true }).click();
     await page.getByRole('button', { name: '보안', exact: true }).click();
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-    await app.screenshot({ path: path.join(dir, 'mobile.png') });
+    await page.evaluate(() => window.scrollTo(0, 0));
+    const navBox = await page.locator('nav').boundingBox();
+    assert(navBox.y > 650 && navBox.y + navBox.height <= 800, 'mobile navigation stays at viewport bottom');
+    await page.screenshot({ path: path.join(dir, 'mobile.png'), fullPage: false });
+    for (const width of [320, 768, 1100]) {
+      await page.setViewportSize({width, height:900});
+      for (const name of ['브리핑', '북마크', '관심사·설정']) {
+        await page.getByRole('button', {name, exact:true}).click();
+        assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${name} ${width}: overflow`);
+      }
+    }
+    const saveColors = await page.getByRole('button', {name:'설정 저장', exact:true}).evaluate(el => ({fg:getComputedStyle(el).color,bg:getComputedStyle(el).backgroundColor}));
+    assert.notEqual(saveColors.fg, saveColors.bg);
     assert.deepEqual(errors, []);
-    console.log('Saved four screenshots; round history, independent reading, news counts, bookmarks, regeneration and mobile checks passed.');
+    console.log('Saved five screenshots; round history, independent reading, news counts, bookmarks, regeneration and mobile checks passed.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

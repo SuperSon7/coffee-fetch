@@ -30,6 +30,7 @@
 | 위치 | 역할 |
 |---|---|
 | [제품 정의](docs/product/definition.md) | 현재 목적·기능 범위·결정 |
+| [디자인 기준](docs/product/design.md) | 화면 스타일·조작 원칙·디자인 레퍼런스 |
 | [참고 사이트](docs/references/sites.md) | 다시 사용할 조사 출처 |
 | [행사 발표·로컬 LLM](docs/references/events-and-local-llm.md) | 추가 조사 자료 |
 | [과거 초안](docs/archive/README.md) | 초기 설계·목업·논의 보관. 현재 사양 아님 |
