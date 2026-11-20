@@ -156,3 +156,12 @@
 - 검증: 기존 동작·반응형 검사 통과, 3개 화면 시각 확인. 보조 글자 크기 보완. 실제 iOS 실기기 검증 미실시.
 - 시간: 사용자 집중 시간 미측정. 병목: 기존 스킬의 긴 절차와 실제 초안 요청 간 범위 조정. 개선: 확정된 제품 흐름을 재사용하고 초안과 최종 채택을 구분.
 - 다음: 사용자가 초안을 보고 색감·브랜드 분위기 결정. 구현 시작은 아님.
+### 2026-11-20 / 구현 스택·에이전트 개발 환경 준비
+
+- 결정: React·Vite·TypeScript, Tailwind·shadcn, TanStack Query, Python FastAPI, SQLite·SQLAlchemy·Alembic. Coffee Blend 디자인 채택 반영.
+- 설치: WSL uv·Python 3.13 격리 환경, npm workspaces·프론트 의존성·브라우저 도구. 네 개 프로젝트 스킬을 upstream 커밋으로 고정. 기존 MCP는 중복 설치하지 않음.
+- 자료: docs/engineering/stack.md에 선택 이유·대안·커뮤니티 사용 지표·공식 출처·복원 명령 정리. AGENTS.md에 최소 작업 기준 연결.
+- 검증: npm audit 0건, uv 잠금 복원·FastAPI/SQLite 로딩·쿼리, shadcn 문서 조회, WSL 목업 회귀, Playwright CLI 실행·스냅샷·종료 통과.
+- 병목: 최신 CLI의 사전 배포 의존성, minimatch 보안 경고, 기본 Chrome 경로. 안정판 회귀 도구 분리·한정 override·설치된 Chromium 설정으로 정리.
+- 시간: 사용자 집중 시간 미측정. 앱 소스·빌드·DB 마이그레이션·LLM 연결은 아직 구현 전.
+- 다음: 앱 골격과 API 계약, 선택한 디자인의 첫 화면 구현. 스킬은 다음 WSL 턴부터 발견되며 Windows 작업 창에는 실제 저장소 안내를 남김.

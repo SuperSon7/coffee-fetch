@@ -1,0 +1,11 @@
+{
+  "installedAt": "2026-11-20",
+  "scope": "repository",
+  "installer": "OpenAI skill-installer/install-skill-from-github.py",
+  "skills": [
+    {"name":"vercel-react-best-practices","repository":"vercel-labs/agent-skills","path":"skills/react-best-practices","commit":"1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62"},
+    {"name":"shadcn","repository":"shadcn-ui/ui","path":"skills/shadcn","commit":"f50887ae68d0fdcbfbe86b57be08af94a4c88a68"},
+    {"name":"playwright-cli","repository":"microsoft/playwright-cli","path":"skills/playwright-cli","commit":"c872a33cec77fa03c28fa7c6d1ad99d15d04ce42"},
+    {"name":"security-best-practices","repository":"openai/skills","path":"skills/.curated/security-best-practices","commit":"49f948faa9258a0c61caceaf225e179651397431"}
+  ]
+}

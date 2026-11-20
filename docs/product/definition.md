@@ -32,7 +32,7 @@
 
 ## 화면과 동작
 
-2026-11-20: 초록색을 제외한 [Coffee Blend 디자인 초안](mockup/coffee-blend/index.html)을 별도로 제안했습니다. [디자인 의도·레퍼런스](design.md)에서 비교하며, 기능 정의는 유지합니다.
+2026-11-20: 초록색을 제외한 [Coffee Blend 디자인 초안](mockup/coffee-blend/index.html)을 제안 후 채택했습니다. [디자인 의도·레퍼런스](design.md)를 구현 기준으로 삼으며, 기능 정의는 유지합니다.
 
 2026-11-18 시각 개선: [디자인 기준·레퍼런스](design.md)에 따라 PC 사이드바, 모바일 하단 메뉴, 구분선 중심 목록과 제한된 유리 효과를 적용했습니다.
 
@@ -92,49 +92,40 @@
 
 ## 목업 캡처
 
-화면 구성 검토용 가상 데이터입니다. 배치와 스타일은 추후 변경할 수 있습니다. [클릭 가능한 목업 원본](mockup/index.html)은 내려받아 브라우저에서 열 수 있습니다.
+화면 구성 검토용 가상 데이터입니다. 배치와 스타일은 추후 변경할 수 있습니다. [클릭 가능한 목업 원본](mockup/coffee-blend/index.html)은 내려받아 브라우저에서 열 수 있습니다.
 
 ### 브리핑
 
-![오늘의 브리핑 목업](mockup/briefing.png)
+![오늘의 브리핑 목업](mockup/coffee-blend/briefing.png)
 
-### 모바일 보안 필터
+### 모바일 브리핑
 
-![모바일 통합 브리핑의 보안 필터](mockup/mobile.png)
+![모바일 통합 브리핑](mockup/coffee-blend/mobile.png)
 
 ### 북마크
 
-![소식별 북마크 목업](mockup/saved.png)
+![소식별 북마크 목업](mockup/coffee-blend/saved.png)
 
 ### 소식과 관련 카드
 
-![소식별 읽기 진행과 관련 카드](mockup/news.png)
+![소식별 읽기 진행과 관련 카드](mockup/coffee-blend/news.png)
 
 ### 관심사·설정
 
-![관심사와 설정 목업](mockup/settings.png)
+![관심사와 설정 목업](mockup/coffee-blend/settings.png)
 
 <details>
 <summary>목업 캡처 다시 만들기</summary>
 
-Playwright를 사용합니다. 캡처 명령은 [tools/capture-mockup.cjs](../../tools/capture-mockup.cjs)에 있습니다. 캡처용 브라우저는 독립 프로필과 네트워크 차단 상태에서 HTML 내용만 렌더링합니다.
-
-Windows에는 Playwright를 전역 설치했으며 기존 Edge를 사용합니다. 저장소 루트에서 실행:
-
-```powershell
-$env:NODE_PATH = (npm root -g)
-node tools/capture-mockup.cjs
-```
-
-WSL에서 처음 사용할 때:
+저장소 루트에서 WSL 로컬 의존성을 사용합니다. 초기 환경 복원은 [스택 문서](../engineering/stack.md)를 따릅니다.
 
 ```bash
-npm install --global playwright
-playwright install --with-deps chromium
-NODE_PATH=$(npm root -g) node tools/capture-mockup.cjs
+mkdir -p .cache/mockup-check
+cp docs/product/mockup/coffee-blend/index.html .cache/mockup-check/index.html
+npm run capture:mockup -- .cache/mockup-check
 ```
 
-PC 화면과 모바일 PNG를 갱신하고 회차 전환·카드별 읽음·소식별 집계·북마크·재생성 보존, 360px 화면의 가로 넘침, JavaScript 실행 오류를 확인합니다. WSL 설치·실행은 아직 검증하지 않았습니다.
+PC·모바일 캡처와 회차·읽음·북마크·필터·재생성 회귀 검사를 수행합니다. 결과는 Git에서 제외된 `.cache/mockup-check`에 둡니다. 공식 캡처를 갱신할 때만 대상 폴더를 `docs/product/mockup/coffee-blend`로 지정합니다. WSL Chromium에서 실행 확인했습니다.
 
 </details>
 
@@ -188,7 +179,9 @@ erDiagram
 
 ## 구현 방향
 
-2026-09-26 논의 기준입니다. 앱 구현 전 기술 선택을 정리한 내용입니다.
+2026-11-20: React·Vite·TypeScript, Tailwind·shadcn/ui, FastAPI·Python, SQLAlchemy·Alembic·SQLite를 채택하고 WSL 개발 환경과 에이전트 스킬을 준비했습니다. [선택 이유·실행 구조·도구 설정](../engineering/stack.md)에 상세 내용을 모았습니다. 앱 기능은 아직 구현 전입니다.
+
+아래는 기존 언어·운영 원칙이며, 구체적인 프레임워크 선택은 위 스택 문서를 따릅니다.
 
 | 영역 | 결정 | 역할·이유 |
 |---|---|---|
@@ -201,7 +194,7 @@ erDiagram
 
 화면은 API를 통해 Python 서버와 통신하고, DB와 모델 제공자 접근은 서버 측에서 처리합니다. 화면과 수집·요약 역할을 분리하면서 Python 실험을 제품에 연결하는 방향으로 두 언어를 선택했습니다. API 요청·응답 형식과 오류 처리는 양쪽이 공유할 기준으로 정의합니다.
 
-개인용 규모를 기준으로 개발 속도와 호환성을 우선합니다. 작업자 증가를 전제하지 않으며, 서버 배포만을 이유로 DB를 교체하지 않습니다. 프레임워크·ORM·Gateway 제품·배포 도구는 아직 확정하지 않았습니다.
+개인용 규모를 기준으로 개발 속도와 호환성을 우선합니다. 작업자 증가를 전제하지 않으며, 서버 배포만을 이유로 DB를 교체하지 않습니다. 프레임워크·ORM은 확정했습니다. Gateway 제공자·배포 도구는 실제 실행 환경에 맞춰 후속 결정합니다.
 
 ## 아직 결정하지 않은 것
 
@@ -209,12 +202,14 @@ erDiagram
 - 설정의 주기·분량 변경 적용 시점, 즉시 생성과 예약 생성이 겹칠 때 처리
 - 원문 주소 정규화 세부 규칙, 같은 소식을 다음 회차에 다시 포함할 조건, 게시일 누락·삭제된 원문 처리
 - 로컬 LLM 모델·실행 위치, 외부 API 제공자, Gateway 제품과 예산·장애 시 전환 정책
-- 상세 테이블·컬럼, TypeScript·Python 프레임워크와 DB 접근 도구, 실행 일정과 실패·재시도 구조
+- 상세 테이블·컬럼, 실행 일정과 실패·재시도 규칙
 - 서버 위치·배포 방식, 모바일 접근 방식, 백업 주기·보관 위치·복구 목표
 
-다음은 두 언어를 연결할 API와 실행 구조, 프레임워크를 결정하는 작업입니다. 앱 구현은 아직 시작하지 않았습니다.
+다음은 선택한 스택으로 앱 골격과 API 계약을 만들고 첫 화면을 연결하는 작업입니다. 앱 구현은 아직 시작하지 않았습니다.
 
 ## 변경 기록
+
+- 2026-11-20: Coffee Blend 디자인 채택. 웹·서버 프레임워크와 DB 접근 도구 확정, WSL 의존성·프로젝트 스킬 준비.
 
 - 2026-11-18: 기술 트래킹을 브리핑에 통합. 소식 유형 필터, 공식 업데이트 우선 수집, 중요 공지 우선 표시, 접힌 소식 더 보기 반영. 읽을 분량은 최대 생성 개수에서 기본 펼침 개수로 변경.
 

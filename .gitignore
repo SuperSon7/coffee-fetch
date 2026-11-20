@@ -4,3 +4,19 @@ Thumbs.db
 .env.*
 __pycache__/
 .token-usage/
+
+# Project environments and generated artifacts
+node_modules/
+.venv/
+.cache/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.playwright-cli/
+playwright-report/
+test-results/
+dist/
+*.db
+*.db-shm
+*.db-wal
+!*.example

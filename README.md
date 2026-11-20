@@ -4,7 +4,7 @@
 
 관심 기술의 보안·업데이트·사례·발표를 하나의 브리핑에서 읽고 북마크하는 개인 프로젝트입니다. 만들고 싶은 것을 만들면서 AI를 어떻게 활용할지 배웁니다.
 
-**현재: 목업을 기준으로 화면별 동작과 회차 보관·카드별 읽음·북마크 데이터 관계를 정리했습니다. 화면 구성은 변경 가능한 초안이며 앱은 아직 구현하지 않았습니다.** 작업 파일은 WSL 저장소를 기준으로 관리합니다.
+**현재: Coffee Blend 디자인과 React·Vite + FastAPI + SQLite 스택을 채택했습니다. WSL 개발 의존성과 프로젝트 스킬을 준비했으며 앱 기능 구현은 아직 시작하지 않았습니다.** 작업 파일은 WSL 저장소를 기준으로 관리합니다.
 
 ## 로드맵
 
@@ -14,7 +14,7 @@
 |---|---|---|---|
 | 1. 방향 정리 | 목적·첫 버전 범위 정리 | [현재 제품 정의](docs/product/definition.md) 확정. #1·#2 완료 | [#1](https://github.com/SuperSon7/coffee-fetch/issues/1), [#2](https://github.com/SuperSon7/coffee-fetch/issues/2) |
 | 2. 읽기 경험 확인 | 실제 소식으로 읽기·북마크 흐름 확인 | 대화에서 목업 검토, [화면·동작 정의](docs/product/definition.md) 반영. 실제 자료 검증 필요 | [#3](https://github.com/SuperSon7/coffee-fetch/issues/3), [#4](https://github.com/SuperSon7/coffee-fetch/issues/4) |
-| 3. 수집·요약과 구조 결정 | 자료 수집·요약을 시험하고 저장·처리 구조 결정 | 데이터 관계·보관 규칙 정리. 실행 구조·기술 선택 필요 | [#5](https://github.com/SuperSon7/coffee-fetch/issues/5), [#6](https://github.com/SuperSon7/coffee-fetch/issues/6) |
+| 3. 수집·요약과 구조 결정 | 자료 수집·요약을 시험하고 저장·처리 구조 결정 | 데이터 관계·보관 규칙 정리. [스택·실행 구조](docs/engineering/stack.md) 결정. 상세 모델·실제 자료 검증 필요 | [#5](https://github.com/SuperSon7/coffee-fetch/issues/5), [#6](https://github.com/SuperSon7/coffee-fetch/issues/6) |
 | 4. 작은 버전 연결 | 설정 → 수집 → 카드 → 읽음·북마크 동작 | 미착수 | [#7](https://github.com/SuperSon7/coffee-fetch/issues/7), [#8](https://github.com/SuperSon7/coffee-fetch/issues/8), [#9](https://github.com/SuperSon7/coffee-fetch/issues/9) |
 | 5. 직접 사용·개선 | 실제 사용과 개발 병목을 바탕으로 개선 | 미착수. 배포는 필요할 때 결정 | [#11](https://github.com/SuperSon7/coffee-fetch/issues/11), 배포 후보 [#10](https://github.com/SuperSon7/coffee-fetch/issues/10) |
 
@@ -31,6 +31,7 @@
 |---|---|
 | [제품 정의](docs/product/definition.md) | 현재 목적·기능 범위·결정 |
 | [디자인 기준](docs/product/design.md) | 화면 스타일·조작 원칙·디자인 레퍼런스 |
+| [구현 스택·에이전트 도구](docs/engineering/stack.md) | 기술 선택 이유·설치 상태·검증·조사 출처 |
 | [참고 사이트](docs/references/sites.md) | 다시 사용할 조사 출처 |
 | [행사 발표·로컬 LLM](docs/references/events-and-local-llm.md) | 추가 조사 자료 |
 | [과거 초안](docs/archive/README.md) | 초기 설계·목업·논의 보관. 현재 사양 아님 |
@@ -45,4 +46,4 @@ cd ~/projects/coffee-fetch
 git pull --ff-only
 ```
 
-개발 실행 방법은 구현 후 추가합니다. 과거 HTML 목업은 내려받아 브라우저에서 열 수 있지만 샘플 데이터와 일시적인 UI 동작만 포함합니다.
+환경 복원·스킬 사용법은 [스택 문서](docs/engineering/stack.md)에 있습니다. 앱 실행 명령은 첫 구현 후 추가합니다. 과거 HTML 목업은 내려받아 브라우저에서 열 수 있지만 샘플 데이터와 일시적인 UI 동작만 포함합니다.
