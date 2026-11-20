@@ -6,7 +6,7 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const assert = require('node:assert/strict');
 (async () => {
-  const dir = path.resolve(__dirname, '../docs/product/mockup');
+  const dir = process.argv[2] ? path.resolve(process.argv[2]) : path.resolve(__dirname, '../docs/product/mockup');
   const browser = await chromium.launch(process.platform === 'win32' ? { channel: 'msedge', headless: true } : { headless: true });
   try {
     // No URL navigation, network, credentials, or existing browser profile.
@@ -16,7 +16,9 @@ const assert = require('node:assert/strict');
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.setContent(await fs.readFile(path.join(dir, 'index.html'), 'utf8'));
+    await page.evaluate(() => document.fonts.ready);
     const app = page.locator('#coffee-fetch-flow');
+    await page.screenshot({ path: path.join(dir, 'desktop.png'), fullPage: false });
     assert.equal(await page.locator('article').count(), 5);
     assert.equal(await page.locator('article').first().getAttribute('data-kind'), 'security');
     await page.getByRole('button', { name: '업데이트 더 보기 · 2개 접힘', exact: true }).click();
@@ -85,7 +87,7 @@ const assert = require('node:assert/strict');
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${name}: horizontal overflow`);
     }
     await page.getByRole('button', { name: '브리핑', exact: true }).click();
-    await page.getByRole('button', { name: '보안', exact: true }).click();
+    await page.getByRole('button', { name: '전체', exact: true }).click();
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await page.evaluate(() => window.scrollTo(0, 0));
     const navBox = await page.locator('nav').boundingBox();
@@ -101,6 +103,6 @@ const assert = require('node:assert/strict');
     const saveColors = await page.getByRole('button', {name:'설정 저장', exact:true}).evaluate(el => ({fg:getComputedStyle(el).color,bg:getComputedStyle(el).backgroundColor}));
     assert.notEqual(saveColors.fg, saveColors.bg);
     assert.deepEqual(errors, []);
-    console.log('Saved five screenshots; round history, independent reading, news counts, bookmarks, regeneration and mobile checks passed.');
+    console.log('Saved six screenshots; round history, independent reading, news counts, bookmarks, regeneration and mobile checks passed.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
